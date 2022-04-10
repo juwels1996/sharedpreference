@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shared_preferences/home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -13,7 +14,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       home: MyHome(),
-      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
@@ -24,9 +24,9 @@ class MyHome extends StatefulWidget {
 }
 
 class _MyHomeState extends State<MyHome> {
-  TextEditingController emailController = new TextEditingController();
+  TextEditingController emailController =  TextEditingController();
 
-  TextEditingController passwordController = new TextEditingController();
+  TextEditingController passwordController =  TextEditingController();
   SharedPreferences? sharedPreferences;
 
   @override
@@ -80,9 +80,9 @@ class _MyHomeState extends State<MyHome> {
                       controller: emailController,
                       obscureText: false,
                       decoration: InputDecoration(
-                          border: InputBorder.none,
-                          fillColor: Colors.tealAccent,
-                          filled: true),
+                        hintText: "Enter your email"
+
+                          ),
                     ),
                   ],
                 ),
@@ -103,9 +103,7 @@ class _MyHomeState extends State<MyHome> {
                       controller: passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
-                          border: InputBorder.none,
-                          fillColor: Colors.grey,
-                          filled: true),
+                      ),
                     ),
                   ],
                 ),
@@ -115,8 +113,10 @@ class _MyHomeState extends State<MyHome> {
               ),
               RaisedButton(
                 onPressed: () {
+
                   saveIntoLocalStorage(
-                      emailController.text, passwordController.text);
+                      emailController.text, passwordController.text
+                  );
                 },
                 child: Text(
                   "Login",
