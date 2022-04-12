@@ -50,7 +50,9 @@ class _MyHomeState extends State<MyHome> {
     }
     print(sharedPreferences?.getString("email"));
     print(sharedPreferences?.getString("password"));
-    setState(() {});
+    setState(() {
+
+    });
   }
 
   @override
@@ -103,6 +105,7 @@ class _MyHomeState extends State<MyHome> {
                       controller: passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
+                        hintText: "enter your password here"
                       ),
                     ),
                   ],
@@ -127,7 +130,8 @@ class _MyHomeState extends State<MyHome> {
               ),
               if (sharedPreferences?.getString("email") != null)
                 Text(
-                    "user logged in!!! ->  Email Id : ${sharedPreferences?.getString('email') ?? "not"} Password : ${sharedPreferences?.getString('password') ?? "not"}"),
+                    "user logged in!!! ->  Email Id : ${sharedPreferences?.getString('email') ?? "not"} "
+                        "Password : ${sharedPreferences?.getString('password') ?? "not"}"),
             ],
           ),
         ),
